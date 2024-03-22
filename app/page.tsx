@@ -6,8 +6,6 @@ import { useState } from 'react'
 
 import { AnimatedText } from '@/components/animated-text'
 import Cursor from '@/components/cursor'
-import MusicVisualizer from '@/components/music-visualizer'
-import MusicWave from '@/components/music-wave'
 import { NoiseBackground } from '@/components/noise-background'
 import { useCursor } from '@/hooks/use-cursor'
 
@@ -26,7 +24,6 @@ const DynamicMusicWave = dynamic(() => import('../components/music-wave'), {
 export default function Home() {
   const { setHovered } = useCursor()
   const [menuOpen, setMenuOpen] = useState(false)
-  const stripeHeight = '10vh'
 
   return (
     <main className={'relative flex h-screen w-screen cursor-none items-center justify-center overflow-hidden'}>
@@ -46,7 +43,6 @@ export default function Home() {
         <div className="top-container relative flex items-center justify-center">
           <div className="absolute left-7 top-7 z-10" onClick={() => setMenuOpen(!menuOpen)}>
             <Image alt="Menu" height={24} src={MenuIcon} width={24} />
-            {/* <MusicVisualizer src="../public/assets/musics/troi-giau-mang-di.mp3" /> */}
           </div>
           <div className="relative mt-6 flex justify-center space-x-4">
             <div className="flex items-center">
@@ -54,7 +50,6 @@ export default function Home() {
               <AnimatedText
                 text="PROJECTS"
                 triggerOnHover={true}
-                onClick={() => handleNavigation('/projects')}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
               />
@@ -62,14 +57,12 @@ export default function Home() {
             <AnimatedText
               text="MECHS"
               triggerOnHover={true}
-              onClick={() => handleNavigation('/mechs')}
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
             />
             <AnimatedText
               text="STORY"
               triggerOnHover={true}
-              onClick={() => handleNavigation('/story')}
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
             />
@@ -81,10 +74,11 @@ export default function Home() {
         ></div>
         <div className="bottom-container" style={{ position: 'relative' }}>
           <div
-            className="relative"
-            style={{ fontSize: '11px', userSelect: 'none', marginTop: '10px', marginLeft: '25px' }}
+            className="relative w-[500px]"
+            style={{ fontSize: '14px', userSelect: 'none', marginTop: '10px', marginLeft: '25px' }}
           >
-            Attention commanders! Our territory is under attack. Suit up and protect our loved ones!
+            Attention commanders! Our territory is under attack.
+            <br /> Suit up and protect our loved ones!
           </div>
           <div className="absolute" style={{ right: '180px' }}>
             <div className="relative">

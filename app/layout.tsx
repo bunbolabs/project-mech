@@ -1,8 +1,8 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
+import { IBM_Plex_Mono, Inter } from 'next/font/google'
+const inter = IBM_Plex_Mono({ subsets: ['latin'], weight: ['500'] })
 
 export const metadata: Metadata = {
   title: 'Project: Mech',
