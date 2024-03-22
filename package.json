@@ -18,6 +18,7 @@
     "react-dom": "^18",
     "react-howler": "^5.2.0",
     "react-parallax": "^3.5.1",
+    "react-unity-webgl": "^9.5.1",
     "react-wavesurfer": "^0.8.6",
     "tailwind-merge": "^2.2.1",
     "wavesurfer.js": "^7.7.5",
