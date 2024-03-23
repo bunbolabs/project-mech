@@ -17,6 +17,7 @@ import RoboHead from '../public/assets/images/robo-head.png'
 import Stripe from '../public/assets/images/stripe.png'
 import Temp1 from '../public/assets/images/temp1.png'
 import Temp2 from '../public/assets/images/temp2.png'
+import { GoogleSignInButton } from '@/components/google-sign-in-button'
 
 const DynamicMusicWave = dynamic(() => import('../components/music-wave'), {
   ssr: false,
@@ -58,6 +59,7 @@ export default function Home() {
         <div className="top-container relative flex items-center justify-center">
           <div className="absolute left-7 top-7 z-10" onClick={() => setMenuOpen(!menuOpen)}>
             <Image alt="Menu" height={24} src={MenuIcon} width={24} />
+            <GoogleSignInButton></GoogleSignInButton>
           </div>
           <div className="relative mt-6 flex justify-center space-x-4">
             <div className="flex items-center" onMouseEnter={playMouseHoverSfx}>
