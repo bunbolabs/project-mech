@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect } from 'react'
 
 import { useCursor } from '@/hooks/use-cursor'
 
@@ -14,9 +14,6 @@ export default function Cursor() {
     }
 
     document.addEventListener('mousemove', onMouseMove)
-    // document.addEventListener('mousedown', () => {
-    //   console.log('mousedown')
-    // })
 
     return () => {
       document.removeEventListener('mousemove', onMouseMove)

@@ -2,9 +2,10 @@
 
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { AnimatedText } from '@/components/animated-text'
+import { AUDIOS } from '@/components/audio'
 import Cursor from '@/components/cursor'
 import { NoiseBackground } from '@/components/noise-background'
 import { useCursor } from '@/hooks/use-cursor'
@@ -25,8 +26,22 @@ export default function Home() {
   const { setHovered } = useCursor()
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const playBackgroundMusic = () => {
+    if (AUDIOS.LANDING_PAGE_BACKGROUND.playing()) return
+    AUDIOS.LANDING_PAGE_BACKGROUND.play()
+  }
+
+  const playMouseHoverSfx = () => AUDIOS.MOUSE_HOVER.play()
+
+  useEffect(() => {
+    playBackgroundMusic()
+  }, [])
+
   return (
-    <main className={'relative flex h-screen w-screen cursor-none items-center justify-center overflow-hidden'}>
+    <main
+      className={'relative flex h-screen w-screen cursor-none items-center justify-center overflow-hidden'}
+      onClick={playBackgroundMusic}
+    >
       <div
         className="content-rectangle"
         style={{
@@ -45,7 +60,7 @@ export default function Home() {
             <Image alt="Menu" height={24} src={MenuIcon} width={24} />
           </div>
           <div className="relative mt-6 flex justify-center space-x-4">
-            <div className="flex items-center">
+            <div className="flex items-center" onMouseEnter={playMouseHoverSfx}>
               <Image alt="Dot" height={6} src={DotIcon} style={{ marginRight: '10px' }} width={6} />
               <AnimatedText
                 text="PROJECTS"
@@ -54,18 +69,24 @@ export default function Home() {
                 onMouseLeave={() => setHovered(false)}
               />
             </div>
-            <AnimatedText
-              text="MECHS"
-              triggerOnHover={true}
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            />
-            <AnimatedText
-              text="STORY"
-              triggerOnHover={true}
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            />
+            <div className="flex items-center" onMouseEnter={playMouseHoverSfx}>
+              <AnimatedText
+                className="text-[#E5E5E5]"
+                text="MECHS"
+                triggerOnHover={true}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              />
+            </div>
+            <div className="flex items-center" onMouseEnter={playMouseHoverSfx}>
+              <AnimatedText
+                className="text-[#E5E5E5]"
+                text="STORY"
+                triggerOnHover={true}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              />
+            </div>
           </div>
         </div>
         <div
@@ -80,19 +101,20 @@ export default function Home() {
             Attention commanders! Our territory is under attack.
             <br /> Suit up and protect our loved ones!
           </div>
-          <div className="absolute" style={{ right: '180px' }}>
-            <div className="relative">
-              <p style={{ fontSize: '80px', fontWeight: 'bold', userSelect: 'none' }}>PROJECT —</p>
+          <div className="absolute" style={{ right: '100px' }}>
+            <div className="relative flex items-center gap-10">
+              <AnimatedText className="text-left font-heavy text-[100px]" text="PROJECT" />
+              <div className="h-[20px] w-[150px] bg-white" />
             </div>
             <div className="absolute right-10">
-              <p style={{ fontSize: '80px', fontWeight: 'bold', userSelect: 'none' }}>MECH</p>
+              <AnimatedText className="text-left font-heavy text-[100px]" text="MECH" />
             </div>
           </div>
           <Image
             alt="temp"
             height={300}
             src={Temp1}
-            style={{ position: 'absolute', left: '7.5%', top: '1500%' }}
+            style={{ position: 'absolute', left: '7.5%', top: '550%' }}
             width={450}
           />
           <Image
