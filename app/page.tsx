@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { AnimatedText } from '@/components/animated-text'
 import { AUDIOS } from '@/components/audio'
 import Cursor from '@/components/cursor'
+import { GoogleSignInButton } from '@/components/google-sign-in-button'
 import { NoiseBackground } from '@/components/noise-background'
 import { useCursor } from '@/hooks/use-cursor'
 
@@ -17,7 +18,6 @@ import RoboHead from '../public/assets/images/robo-head.png'
 import Stripe from '../public/assets/images/stripe.png'
 import Temp1 from '../public/assets/images/temp1.png'
 import Temp2 from '../public/assets/images/temp2.png'
-import { GoogleSignInButton } from '@/components/google-sign-in-button'
 
 const DynamicMusicWave = dynamic(() => import('../components/music-wave'), {
   ssr: false,
