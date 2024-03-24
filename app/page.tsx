@@ -57,8 +57,7 @@ export default function Home() {
         }}
       >
         <div className="top-container relative flex items-center justify-center">
-          <div className="absolute left-7 top-7 z-10" onClick={() => setMenuOpen(!menuOpen)}>
-            <Image alt="Menu" height={24} src={MenuIcon} width={24} />
+          <div className="absolute left-7 z-10" onClick={() => setMenuOpen(!menuOpen)}>
             <GoogleSignInButton></GoogleSignInButton>
           </div>
           <div className="relative mt-6 flex justify-center space-x-4">
@@ -116,14 +115,14 @@ export default function Home() {
             alt="temp"
             height={300}
             src={Temp1}
-            style={{ position: 'absolute', left: '7.5%', top: '550%' }}
+            style={{ position: 'absolute', left: '13%', top: '850%' }}
             width={450}
           />
           <Image
             alt="temp"
             height={200}
             src={Temp2}
-            style={{ position: 'absolute', right: '8%', top: '750%' }}
+            style={{ position: 'absolute', right: '15%', top: '500%' }}
             width={530}
           />
         </div>
